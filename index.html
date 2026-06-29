@@ -15,6 +15,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
 <style>
   :root{
     --sea-900:#0B3B47;
@@ -226,6 +228,22 @@
   .distpill.near{background:#E1F0E9;color:#1c7a5a}
   .distpill.walk{background:#EAF2F1;color:var(--sea-700)}
   .distpill.far{background:#F3E9E2;color:var(--clay)}
+  #map{height:70vh;min-height:420px;border-radius:16px;border:1px solid var(--line);overflow:hidden;position:relative;z-index:0}
+  .mapbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0 12px}
+  .maplegend{display:flex;gap:13px;flex-wrap:wrap;margin-left:auto;font-size:12px;color:var(--muted)}
+  .maplegend span{display:inline-flex;align-items:center;gap:5px}
+  .maplegend i{width:11px;height:11px;border-radius:50%;display:inline-block;border:1px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.18)}
+  .pin span{display:block;width:100%;height:100%;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.45)}
+  .pin.hotel span{background:#0B3B47;border:3px solid #E2674A}
+  .mpop b{font-family:"Fraunces",serif;font-size:15px;color:var(--ink)}
+  .mmeta{font-family:"Space Mono",monospace;font-size:10.5px;color:var(--muted);margin:3px 0 7px}
+  .mlinks{display:flex;gap:12px}
+  .mlinks a{font-size:12px;font-weight:600;color:var(--sea-600);text-decoration:none}
+  .mlinks a:hover{text-decoration:underline}
+  .maplink.book{color:var(--clay)}
+  .maplink.book:hover{background:var(--clay);color:#fff;border-color:var(--clay)}
+  .sbook{flex:none;width:28px;height:28px;display:grid;place-items:center;color:var(--sea-600);border-radius:7px;text-decoration:none}
+  .sbook:hover{background:#EAF2F1}
   .hidden{display:none !important}
   .footnote{font-size:12px;color:var(--muted);margin-top:20px;max-width:70ch}
   .footnote code{font-family:"Space Mono",monospace;background:#EFEAdd;padding:1px 5px;border-radius:4px}
@@ -264,6 +282,7 @@
   <div class="tabs" role="tablist">
     <button class="tab" id="tab-explore" role="tab" aria-selected="true" onclick="showView('explore')">Utforsk</button>
     <button class="tab" id="tab-plan" role="tab" aria-selected="false" onclick="showView('plan')">Min plan</button>
+    <button class="tab" id="tab-map" role="tab" aria-selected="false" onclick="showView('map')">Kart</button>
     <div class="tabcount" id="tabcount"></div>
   </div>
 
@@ -316,6 +335,23 @@
     <p class="footnote">Prisene er grove estimater per person (mat = ett måltid, aktiviteter = inngang/tur) og bare ment som et nivå-anslag — ikke en fasit. Planen lagres automatisk, så du kan komme tilbake hit senere og fortsette der du slapp. <span id="storagenote"></span></p>
   </section>
 
+  <!-- KART VIEW -->
+  <section id="view-map" class="hidden">
+    <div class="mapbar">
+      <button class="btn" onclick="fitRegion('ischia')">Ischia</button>
+      <button class="btn" onclick="fitRegion('napoli')">Napoli</button>
+      <div class="maplegend">
+        <span><i style="background:#C99238"></i>Mat &amp; vin</span>
+        <span><i style="background:#16707F"></i>Bad &amp; dykk</span>
+        <span><i style="background:#2E8C8C"></i>Terme &amp; spa</span>
+        <span><i style="background:#B5683C"></i>Kultur &amp; natur</span>
+        <span><i style="background:#0B3B47;border-color:#E2674A"></i>Hotell</span>
+      </div>
+    </div>
+    <div id="map"></div>
+    <p class="footnote">Trykk en markør for navn, avstand fra hotellet og lenker til kart og nettside/booking. Kartet trenger nett for å laste flisene.</p>
+  </section>
+
 </div>
 
 <div class="toast" id="toast"></div>
@@ -341,6 +377,7 @@ const DAYS = [
 const CATLABEL = {mat:"Mat & vin", bad:"Bad & dykk", terme:"Terme & spa", kultur:"Kultur & natur"};
 const WALK_SVG = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="4" r="1.6"/><path d="M11 21l1.5-6L9 12V8l4-1 2 3 3 1"/><path d="M8 21l2.5-5"/></svg>';
 const BUS_SVG = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="12" rx="2"/><path d="M4 11h16"/><circle cx="8" cy="19" r="1.3"/><circle cx="16" cy="19" r="1.3"/></svg>';
+const GLOBE_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></svg>';
 
 // base: ischia / napoli — bud: 1..3 (€) — cost: ca. EUR pp
 const A = [
@@ -695,6 +732,7 @@ function render(){
         '<a class="maplink" href="'+mapsUrl(a.pid)+'" target="_blank" rel="noopener" title="Vis i Google Maps" aria-label="Vis i Google Maps">'+
           '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.686-6-10a6 6 0 0 1 12 0c0 4.314-6 10-6 10Z"/><circle cx="12" cy="11" r="2"/></svg>'+
         '</a>'+
+        '<a class="maplink book" href="'+bookUrl(a)+'" target="_blank" rel="noopener" title="Nettside / book" aria-label="Nettside eller book">'+GLOBE_SVG+'</a>'+
       '</div>'+
       (assigned.length ? '<div class="assignedChips">'+chipHTML+'</div>' : '');
     grid.appendChild(card);
@@ -729,6 +767,7 @@ function renderPlan(){
         '<span class="sdot" style="background:'+catColor(a.cat)+'"></span>'+
         '<span class="sname">'+a.n+'<small>'+a.area+' · '+CATLABEL[a.cat]+' · '+a.distLabel+'</small></span>'+
         '<span class="scost">€'+a.cost+'</span>'+
+        '<a class="sbook" href="'+bookUrl(a)+'" target="_blank" rel="noopener" title="Nettside / book" aria-label="Nettside eller book">'+GLOBE_SVG+'</a>'+
         '<button class="srm" title="Fjern" onclick="unassign(\''+a.id+'\',\''+d.id+'\')">×</button>'+
       '</div>';
     }).join("");
@@ -804,8 +843,11 @@ function setFilter(kind,val,el){
 function showView(v){
   document.getElementById("view-explore").classList.toggle("hidden", v!=="explore");
   document.getElementById("view-plan").classList.toggle("hidden", v!=="plan");
+  document.getElementById("view-map").classList.toggle("hidden", v!=="map");
   document.getElementById("tab-explore").setAttribute("aria-selected", v==="explore");
   document.getElementById("tab-plan").setAttribute("aria-selected", v==="plan");
+  document.getElementById("tab-map").setAttribute("aria-selected", v==="map");
+  if(v==="map"){ initMap(); setTimeout(function(){ if(MAP){ MAP.invalidateSize(); } }, 60); }
 }
 
 let toastTimer;
@@ -814,6 +856,40 @@ function toast(msg){
   t.textContent = msg; t.classList.add("show");
   clearTimeout(toastTimer);
   toastTimer = setTimeout(()=>t.classList.remove("show"), 2200);
+}
+
+/* ---------------- Kart ---------------- */
+function bookUrl(a){
+  return "https://www.google.com/search?q="+encodeURIComponent(a.n+" "+a.area+" "+(a.base==="ischia"?"Ischia":"Napoli"));
+}
+const CATCOL = {mat:"#C99238", bad:"#16707F", terme:"#2E8C8C", kultur:"#B5683C"};
+let MAP=null, mapDone=false;
+function pin(color){ return L.divIcon({className:"pin", html:'<span style="background:'+color+'"></span>', iconSize:[18,18], iconAnchor:[9,9]}); }
+function initMap(){
+  if(mapDone) return;
+  if(typeof L==="undefined"){
+    document.getElementById("map").innerHTML='<p style="padding:24px;color:#9aa6a3;font-style:italic">Kartet kunne ikke lastes — sjekk at du er på nett.</p>';
+    return;
+  }
+  MAP=L.map("map",{scrollWheelZoom:true}).setView([40.78,14.07],9);
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"© OpenStreetMap"}).addTo(MAP);
+  const hIco=L.divIcon({className:"pin hotel", html:"<span></span>", iconSize:[22,22], iconAnchor:[11,11]});
+  L.marker(HOTELG.ischia,{icon:hIco}).addTo(MAP).bindPopup('<div class="mpop"><b>Hotel Terme Principe</b><div class="mmeta">Din base på Ischia · Lacco Ameno</div></div>');
+  L.marker(HOTELG.napoli,{icon:hIco}).addTo(MAP).bindPopup('<div class="mpop"><b>Exe Majestic</b><div class="mmeta">Din base i Napoli · Chiaia</div></div>');
+  A.forEach(a=>{
+    if(typeof a.lat!=="number") return;
+    const html='<div class="mpop"><b>'+a.n+'</b><div class="mmeta">'+a.area+' · '+CATLABEL[a.cat]+' · '+a.distLabel+'</div>'+
+      '<div class="mlinks"><a href="'+mapsUrl(a.pid)+'" target="_blank" rel="noopener">Åpne i kart</a>'+
+      '<a href="'+bookUrl(a)+'" target="_blank" rel="noopener">Nettside / book</a></div></div>';
+    L.marker([a.lat,a.lng],{icon:pin(CATCOL[a.cat])}).addTo(MAP).bindPopup(html);
+  });
+  mapDone=true;
+  fitRegion("ischia");
+}
+function fitRegion(r){
+  if(!MAP) return;
+  if(r==="napoli") MAP.setView([40.838,14.246],13.3);
+  else MAP.setView([40.735,13.905],11.4);
 }
 
 /* ---------------- Init ---------------- */
