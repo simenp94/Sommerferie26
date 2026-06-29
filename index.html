@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="Ischia & Napoli">
+<meta name="theme-color" content="#0B3B47">
+<link rel="apple-touch-icon" href="data:image/png;base64,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">
+<link rel="icon" type="image/png" href="data:image/png;base64,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">
+<link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%20%22Ischia%20%26%20Napoli%22%2C%20%22short_name%22%3A%20%22Ischia%26Napoli%22%2C%20%22start_url%22%3A%20%22.%22%2C%20%22display%22%3A%20%22standalone%22%2C%20%22orientation%22%3A%20%22portrait%22%2C%20%22background_color%22%3A%20%22%230B3B47%22%2C%20%22theme_color%22%3A%20%22%230B3B47%22%2C%20%22icons%22%3A%20%5B%7B%22src%22%3A%20%22data%3Aimage/png%3Bbase64%2CiVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAYAklEQVR4nO3d2bYc1XkH8C5Wr0yeYluAsY2tefIKxAFJF3mAPIYeIIABoXkemAwYTw8Q3iaCJCBlWSAEyEm8YifIxgg85ebkAjVIpdPq4VTVHr7f78oLwzm7a3%2B1v3/v7n2q%2Bdzf/8PKCAAI5a7UAwAAhicAAEBAAgAABCQAAEBAAgAABCQAAEBA41GTeggAwNDGIwkAAMLxEQAABCQAAEBAAgAABCQAAEBATgEAQEB2AAAgoHFjCwAAwrEDAAABCQAAEJAAAAABOQUAAAHZAQCAgAQAAAhIAACAgDwOGAACsgMAAAEJAAAQkGOAABCQHQAACEgAAICABAAACMjjgAEgIDsAABCQUwAAEJAdAAAISAAAgIAEAAAISAAAgIAEAAAIaDxqHAMAgGjsAABAQAIAAAQkAABAQAIAAAQkAABAQGNnAAAgHscAASAgHwEAQEACAAAEJAAAQEACAAAEJAAAQEDjkUMAABDOeCQBAEA4PgIAgIAEAAAISAAAgIAEAAAIyCkAAAjIDgAABORxwAAQkL8DAAAB%2BQgAAAISAAAgIAEAAAJyDBAAArIDAAABCQAAEJBjgAAQkB0AAAhIAACAgJwCAGBV/77h/9b8M/7m6p91MBL6ME49AADS6qLRL/qzBYP0BACAYPps%2BMuOQSAYnqcBAgRwMYOmfyc3B4IHhIFB2AEAqFTuTX%2Bai8LAIPwdAICKXNzwp9RD6NStYeDPE46kPk4BAFTg4vq6Gv9qJuHmgZ8LAl3wEQBAwSI0/rbJaxYE1kYAAChQxMbfJgisjQAAUBCN/3aCwHL8KWCAQmj%2Bd%2Bb6LMYOAEDmNLb52Q2Yn2OAABm7uP6PqYdQpIvr/zR64Od/kXoYWXMMECBDF7%2Bt8a/VJDw98B%2BCwGp8BwAgM5p/t1zP1QkAABnRrPrhut7OlwABMqBB9W9yjX0k8Ak7AACJaf7Dcr0/4XHAAAld0IySuPjtP44eDL4TMB41IgBAChe%2B9YfUQwjtwrf/OHrwP/8y9TCS8REAQAKafx4iz4MAADCwyE0nR1HnQwAAGFDUZpO7iPMiAAAMJGKTKUm0%2BREAAAYQrbmUKtI8eRYAQM8u3B%2BnqdTgwrf%2BMHrwv%2Bo/HWAHAAAC8jhggB5duP/3qYfAEi7c/4fRg//1V6mH0Ss7AAA90fzLVvv8CQAAPai9eURR8zwKAAAQkFMAAB278M163zVGdOH%2B348e/EV93wewAwDQIc2/TjXOq8cBA8AcauuXjgECdOSNb/4u9RDo0Rvf/P3ob3/xudTD6IyPAAA6oPnHUNM8CwAAEJAAALBGNb0rZLZa5tsxQABYVAW90w4AwBq88Y063g2ymBrmXQAAgIAEAIAl1fAukOWVPv/%2BDgAALK3cHmoHAGAJb3zj49RDIAMl14FTAACwFoX2UTsAABCQAACwoDe%2BXu62L90rtR48DRAA1qjEXmoHAAACcgwQYAGvf/2j1EMgQ69//ePRd//7C6mHsRCnAACgC4X1Ux8BAEBAAgDAnF6/z/Y/05VWHwIAAAQkAABAQAIAAATkGCDAHF6/73rqIVCA1%2B/7aPTdX34x9TDm4hggAHSpkL7qIwAACEgAAICABAAACEgAAICAPA4YYIZ/%2B5oTAMzv9a9dH/3dr/I/CeAUAAB0rYDe6u8AAEDn8u%2BtvgMAAAEJAAAQkAAAAAEJAAAQkFMAANC1AnqrHQAACMgxQADoXP691Q4AAAQkAABAQAIAAAQkAABAQOMm/%2B8pAEBRSuitdgAAICABAAAC8ncAAGZ46P0vj/717g9SD4NCPPT%2Bl1MPYS52AAAgIAEAAALyMCAA6FIhfdUOAAAEJAAAQEACAMAcHrpWxje7SaukOnEMEAA6U05PtQMAAAE5BQAAXSmop9oBAJjTQ7/%2BSuohkLHS6kMAAICAxgXtVgBAtkrrp3YAABbwcGHbvAyjxLpwDBAA1qy8XmoHAAACcgwQYEEP/%2Baro3/5yq9TD4NMPPybr5a4AWAHAAAiEgAAICABAGAJD//mq6mHQAZKrgMBAAACEgAAllTyuz/WrvT5H4%2BaAr%2B6CACpFd4/7QAArMHDH6xLPQQSqGHeBQAACEgAAFijGt4NMr9a5lsAAICAPA4YoAO7Plg3eu3L11IPg57t%2BmBdiX/1d1WeBQDQkV2/XTd67a%2BFgFrt%2Bu26Iv/m/zQeBwwAc6mrX/oOAECHdv327tRDoAc1zqsAANCxGptFZLXOpwAAAAEJAAA9qPVdYzQ1z6NTAAA92fXh3aPXvvR%2B6mGwpF0f3l3b9/5uYQcAoEe7Pqz3HWTNIsybAAAAAfk7AAA92/XhPaPXvvS/qYfBnHZ9eE/qIQzCDgDAAKI0ldJFmicBAGAgkZpLiaLNjwAAMKBoTaYUEedl3PgKAMCgdl%2B/Z/TqF30nIBe7r98zitgL7QAAJLD7erx3nDmKPA8CAEAikZtPDqJff8cAARLaff3e0atf/J/Uwwhn9/V7Uw8hOTsAAIlpRsNyvT8xTj0AAD5rSnYD%2BqPx38rDgAAysvuje0evfkEI6Nruj%2B71iXeLjwAAMrP7I%2B9Uu%2BR6rs5HAAAZmjQtuwHL0/jvzA4AQMY0seW4brM5BgiQud0ffW00Go1Gr37hV4lHkr/JtWI2OwAAhdDc7sz1WYxTAAAF2f3xjd2Az9sNmJhcE/1sMb4ECFAgQeCmxs9SBACAgkUMAhp/N8Z2TADKt%2BdGUzxfcRCYvEZ9qxt2AAAqsuemd8c1hIE93u33RgAAqFSpYUDTH4a/AwAQwJ6P7/v0f5///C8TjmR1N4%2BPYTgGCBDMnt/d2mzPf274QNAeg140PB8BAAR3WzO%2BoYtgMO1nk54AAMCqNO%2B6%2BVPAABCQAAAAAQkAABDQeNT46iUARGMHAAACEgAAICABAAAC8jRAAAjIDgAABORZAAAQkB0AAAjI44ABICA7AAAQkAAAAAEJAAAQkAAAAAE5BggAAdkBAICAHAMEgIDsAABAQAIAAAQkAABAQOPGVwAAIBw7AAAQkAAAAAE5BggAAdkBAICABAAACMizAAAgIDsAABCQAAAAAQkAABCQAAAAAfk7AAAQkB0AAAjIMUAACMgOAAAENLYBAADx2AEAgIAEAAAIyDFAAAjIKQAACMhHAAAQkAAAAAEJAAAQkAAAAAEJAAAQkFMAABCQvwMAAAH5CAAAAhIAACAgTwMEgIDsAABAQE4BAEBAdgAAICDHAAEgIDsAABCQAAAAAQkAABCQAAAAATkGCAAB2QEAgIAEAAAIyN8BAICA7AAAQEACAAAENG58AgAA4dgBAICABAAACEgAAICAHAMEgIDsAABAQJ4FAAAB2QEAgIAEAAAISAAAgIAEAAAIyDFAAAjIDgAABOQYIAAENNb/ASAeHwEAQEACAAAEJAAAQEACAAAENB41vgYIANHYAQCAgAQAAAhIAACAgAQAAAhIAACAgDwLAAAC8jhgAAjIRwAAEJAAAAABeRwwAAQ0Tj0AYHFXf/rytdRjmNjwyBPrrv705WsbHnliXeqxAPNr1v/j4yupBwHcKqcG3xUBAfLSrH9EAIChXf1JfQ1%2BrTY8KiDAkAQAGICGvziBAPrVrH/kCQEA1ujqT36gwQ9sw6NPCgiwBgIALEHDz49AAIsRAGAOGn55BAK4MwEAVqHh10cggFs16x8VAODqjzX8aDY8JhAQmwBASBo%2BbQIB0QgAhKDhsyiBgNo16x99UgCgald//JLmz1I2PLZPCKBaAgBV0vTpmjBAbQQAqqDhMzSBgNI1Gx4TACjPez%2BK3fA3fi%2B/5mNO8psTuBMBgCJEay41NhNzCHn5NAC896OXrilYclF7s3Cv3c6cwzAm/f6WAND%2BlxQsQ7H406YmoBvT%2Bnuz4bF9NwLAizNvto3fe0rB0rl5ai937o3hqRtY3bz9vNnw2L6VZW8kxcuySl%2B81X5%2B1BRRLVv7awoAbQqYaSzODE3NUauuarvZ8L19K%2B/9sJ8bZePjCjiqvmpqKGq3PmqSUvVVu70GgDYFXK%2BcF9eNjz%2B1btb41GY889RE7nWdegz0Y6i6a1ZWVt4f4hetRgGXK%2BeFcR5qjzY1TSqpai9pAGhTwPmqYXF874cvXlNjzDKpkxpqPvUYWF0utZVVAGhTwOnkUqBdUUssyj1AV3KtpawDQNvGx/cr4J6898MXsizQZakVuuYeYV6l1EpRAaBt4xMKeFnvvVxGgc5LLTA09xATpdZC0QGgbZMC/tS7L79wbdMT%2B9e9W2hhzmKuyU3N99pkPUk9llzUMtfj1APo0rRJiVDAtRTkNDXPHXVo12ht92T79dR8T9b%2BBmpifPMk1v5iSw4IUQpyIue5gHlECwQT1tP8TeZmvNo/nIh2cWp7vSW9nhIWDViLSW2XdF%2BORsuPt7TXWbNp6%2BodPwKoJRCUOu5oNH8iKDUIRFPy/My7ljYbn9i/suwvefcH3y/2ApHWpicPaPZwE%2Bspy1p2PV1TAGhTwEyj4cNirKdM09V62mkAaFPAcWn40C3raVx9rae9BoA2BVwvDR%2BGZT2t11Dr6aABoE0Bl0vDh7xYT8uVaj1NGgDaFHC%2BNHwoi/U0X7msp83GJ/MJAG3vvqSAU9m0L48CBbphPU0n1/U06wDQpoD7k2uBAv2wnvanlPW02fjkgWICQNu7Lz2vgJe0ad/BIgoUGIb1dHmlrqdFB4A2BfyZUgsSyJP19TO1rK/NpooCwCzvVFzAmyspSKAM1tPyhQoAs%2BRc0FEKEqiD9TR/AgAABDQeNamHAAAM7a7UAwAAhjce2QKA4rzz4nPnU49hYvNTh/a88%2BJz5zc/dWhP6rEA82s27TvoOwCQmZwafFcEBMiLAAAZqLHhzyIQQFoCAAwgYoNfKwEB%2BtVsekoAgK6984KG37XN%2BwUC6JIAAB3Q8IcnEMDaCACwBA0/PwIBLKbZ9NQhAQBmeOeFZzX8wmzef1gggDsQAGAVGn59BAK4VbNZAIDRFQ0/nC0CAcE1m/cLAMR25fuaf1RbDggBxCUAEJKmT5swQDQCACFo%2BCxKIKB2AgBV0vDpmkBAbQQAqhCt4efYjMwBlKXZvP%2BwAEDRrnz/meoaz5YDR6prLuYJ8iIAUKTamknERmIOIa1m8wEBgPxdeb7sZrHloOawKHMO/fo0AFx5/pnzCpZcWPxpUxPQjUm/vyUAtP8lBUsKJS707pXhqROYz7T%2BfscAsNp/0MfgoLTF3L2QHzUEn5i3nzebDxxeWfbGUcAsK6fFesvBI3tmjUetl2eeOc2tDlOPgTItW8fN5gNHVq48//TSN8GWg0cVLTOtpcZSUNf1UYPUaC113Ww%2BeGTlynPd3BhbDilYbtdVffVpy6Gje6489/R5NVy/yTyXUpepx0B%2BuqrdZsvBIytv93QjbFW8YfVVU31Rq/GoUUrRV602Kysr/9zHD16NAq6XxZTSqWFyMVQtDhoA2hRwuXJaLLceOrpn1njUGouap6Zyuw9Sj4HlpKqjpAFgNFK0pchpoZuHuqJr7gH6kLKukgeAmynYfJS42L393NPn1RB9m9RZifdI6jHwiVxqJ6sA0Lb1sIIdytvP5lGQy1IrDM09w7xyrZWsA0Db1sPHFGxH3n72XJYFOS%2B1QG7cU0yUUgtFBYBpth4%2BtuftZ8%2BdV8DTlVKQ05hbSuOeq9ek35Q%2Bx%2BObJ7n0F9Mef%2BQCLn0uJyLPIWWb1G6p96L19DOlzuE0k7kcr/YPJ0p/0TUXcC0JdJqa5orYSg8CE9PGX%2BMObOlz1TZtbpoth46uzPtDarsoEzkW8DwNvqYAkNO1hyHUdO/Os07ldI97A/WJ8ex/5fYfWutFq/V15SinxQBSqG3HdZbaX18OFl1Xx6NmiV9y5EYQeKaSCV3iGgxixrhKvKEmtZPtNYdESl1XZ65Dud7ruY5rCcuuq82Ww8fm/ghglrefOVtU4TKcrUeOe8cPC7CeMk1X62mnAaBNAcel4UO3rKdx9bWeNlt7DABtlxVwtbZp%2BDAo62m9hlpPBw0AEwq3fBo%2B5MW6Wq5tR47vufzM2fNDr6tJAsCEgi2Hhg9lsb6WI9X62mw9ki4AtF1%2BWsHmYttRDR9qYn3NRy7ra1YBoE3BDieXggSGYX0dTq7ra7P1yPFsA0Db5afPKNiObDt6IsuCBNKwvnanlPW1qAAwiwKerpSCBPJgPZ2ulvW0qgDQFrmAaylQIA/W0/pUHQDaairgWgsSKJP1tTzN1qNxAsAsl8/lU8DbjsUoQJZz%2BdyZV1KPYWLbsRN7L58788q2Yyf2ph4L%2BbK%2B5kcAgAzl1OC7IiBAXgQAyECNDX8WgQDSEgAggYgNfxaBAIbVbD16QgCAnl0%2Bd1rDX9C2YycFAuhRs00AgM69peF3brtAAJ0SAKADGv7wBAJYm2bbMQEAFvXWWQ0/N9uPCwSwCAEA5qDhl0cggDsTAGAVGn59BAK41V2pBwC50fzrZF7hVs22YyftABDeW2dPaQ7BbD9%2Byo4AoQkAhKTh0yYQEE2z7bgAQP3eOqPhs5jtJwQC6iYAUL0am3%2BOzcl1hrIIAFSp9GZUY%2BMxJ5AXAYAqaC7lMWeQlgBA8UpsJJrH7cwjDEsAoEilNQuNYnHmGPrVbDtxSgAge2%2BdPllWMzh5WjPomBqAbjXbbwSAN0%2BffGWHgiUTbxa22Lt3hqdGYDmTfn9LAGj/SwqWFFIv7DtOnt47awzujfzMM2c51FbK309M0/r7HQPAav9BH4OD1AvzLGq/PGqKqObt5832E6dWFrlRFC1dKGFx9rFYHSbzWELNpR4D5VukzhcOADdTsCwj94V4NFLbNVJ31GrZ2m62nzy18uapbm6MHacUL6vrqsaWsePU6b2zfr/ajWeemkhdt6l%2BN3nrqi6b7SdPr7x56kRnRb7j1BlFy6jLmuqDOqVNzVKCLuu0WVlZ%2Baeuflibgo0px4V0x6kze988deIVNckskzrJtY5Tj4Hh9VWLvQaANsVbr5SL5TyLtdpjUfPUVOq6T/W76ddQdTVoAGhTwOXK8d3RzdQWXVPz9CVVbSUNAKORoi1FCYufLX6GkPNHBDdzL5QhZR0lDwA3U7D5yH1xa1M7DM09wrJyqZ2sAkDbjtMKNoU3T%2BZRnHeiNsiN%2B4Zpcq2NrANA247TZxVvT948eTzLAp0w95TGPRVX7nM/0ew4debTxwFfKmTQEzsV8NJKmWtzTOnca/UrZY4nJnN9SwBoK/VFcTtzCWm5B%2BtRy1zeMQBMlPZiJyIV8KWTx1/ZefrsXnMFZSj5Xp2sN6nHMpSS5%2BpO//94kR9S2kWYNt4aCri0uZim5DmAtSh1XZ1oj7vke7n0N1Bt887FeNQs8EPP3PpDL50o9GLdeM1TA8KZs3svnTj%2BSvv1Dmny%2Bxe6xgvMZWqfXtuCxgx9mNwLxaynU%2B7Z4tfTgtei267tnK9lrh2AWb%2B0mMJdUGmvK%2Bfxprz5oQSlvMFadly5vp6SrXVdXVMAaA%2BilAkuZZw10PhhOaWtq6Ur6Tp3ta42O06fnfklwGVdOnGsmAtKt3aeOafxQ4esp3H1tZ72GgDaFHC9NHwYlvW0XkOtp4MGgAmFWz4NH/JiXS3f0Otqs%2BPM8AFg4tJxBVuKnWc1fCiJ9bUcqdbXpAGgTcHmY%2BfZc3svHT/2isYPZbOu5ieXdTWrANCmcNPJpUCBblhP08l1Pc06ALQp4P7kWqBAP6yn/SllPW12nDlXTABou3T8qAJe0s6zTxdRoMAwrKfLK3U9bXYWHADafqaAp/pOoQUKpGE9na6W9bSqANAWqYBrKUigDNbX8jU7z9YbAGb52bFyC/g75%2BosSKBM1tPyhA4As6Qs6KgFCdTJepofAQAAAror9QAAgOEJAAAQ0Hg0alKPAQAY2Fj/B4B4fAQAAAEJAAAQkAAAAAEJAAAQkAAAAAGNR41jAAAQzVj7B4B4fAQAAAEJAAAQkAAAAAEJAAAQkAAAAAE5BggAAdkBAICABAAACEgAAICABAAACEgAAICAxiOHAAAgHDsAABDQuLEFAADh2AEAgIAEAAAISAAAgICcAgCAgOwAAEBAAgAABDQe%2BQwAAMKxAwAAAQkAABCQAAAAATkGCAAB2QEAgIAEAAAISAAAgIA8DhgAArIDAAABOQUAAAHZAQCAgAQAAAhIAACAgAQAAAjI44ABICCnAAAgIB8BAEBAAgAABCQAAEBAAgAABCQAAEBA46ZxDAAAovl/eazupOmSCfgAAAAASUVORK5CYII%3D%22%2C%20%22sizes%22%3A%20%22512x512%22%2C%20%22type%22%3A%20%22image/png%22%2C%20%22purpose%22%3A%20%22any%22%7D%5D%7D">
+<title>Ischia &amp; Napoli — reiseplanlegger</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+<style>
+  :root{
+    --sea-900:#0B3B47;
+    --sea-700:#125663;
+    --sea-600:#16707F;
+    --teal:#2E8C8C;
+    --aqua:#7FC9C9;
+    --coral:#E2674A;
+    --clay:#B5683C;
+    --gold:#C99238;
+    --sand:#F6F1E7;
+    --bg:#FBFAF5;
+    --ink:#15302E;
+    --muted:#5C6B68;
+    --line:#E3DDCF;
+    --shadow:0 1px 2px rgba(11,59,71,.05),0 8px 24px -12px rgba(11,59,71,.18);
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Inter",system-ui,sans-serif;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:1180px;margin:0 auto;padding:0 18px 120px}
+
+  /* ---------- Header ---------- */
+  header.hero{
+    background:
+      radial-gradient(120% 140% at 85% -20%, rgba(127,201,201,.25), transparent 55%),
+      radial-gradient(120% 120% at 0% 0%, rgba(226,103,74,.16), transparent 50%),
+      var(--sea-900);
+    color:#F4EFE3;
+    border-radius:0 0 26px 26px;
+    padding:30px 0 26px;
+    margin-bottom:22px;
+  }
+  .hero .wrap{padding-bottom:0}
+  .eyebrow{
+    font-family:"Space Mono",monospace;
+    font-size:12px;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--aqua);margin:0 0 10px;
+  }
+  .hero h1{
+    font-family:"Fraunces",serif;
+    font-weight:600;font-size:clamp(30px,5.5vw,52px);
+    line-height:1.02;margin:0 0 14px;letter-spacing:-.01em;
+  }
+  .hero h1 em{font-style:italic;color:var(--aqua)}
+  .hero p.lede{margin:0;max-width:62ch;color:#D9D2C2;font-size:15px}
+  .basebar{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+  .baseTag{
+    display:flex;align-items:center;gap:9px;
+    background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);
+    border-radius:12px;padding:9px 13px;font-size:13px;color:#EDE7D8;
+  }
+  .baseTag .dot{width:9px;height:9px;border-radius:50%}
+  .dot.ischia{background:var(--aqua)}
+  .dot.napoli{background:var(--coral)}
+  .baseTag b{font-weight:600;color:#fff}
+  .baseTag span.date{font-family:"Space Mono",monospace;font-size:11.5px;color:#B9C7C4}
+
+  /* ---------- Tabs ---------- */
+  .tabs{
+    position:sticky;top:0;z-index:30;
+    display:flex;gap:6px;align-items:center;
+    background:rgba(251,250,245,.92);backdrop-filter:blur(8px);
+    padding:12px 0;margin-bottom:8px;border-bottom:1px solid var(--line);
+  }
+  .tab{
+    font-family:"Inter";font-weight:600;font-size:14px;
+    border:1px solid var(--line);background:#fff;color:var(--muted);
+    padding:9px 16px;border-radius:11px;cursor:pointer;transition:all .15s;
+  }
+  .tab[aria-selected="true"]{background:var(--sea-900);color:#fff;border-color:var(--sea-900)}
+  .tab:focus-visible{outline:2px solid var(--coral);outline-offset:2px}
+  .tabcount{
+    margin-left:auto;font-family:"Space Mono",monospace;font-size:12px;color:var(--muted);
+    display:flex;align-items:center;gap:6px;
+  }
+  .tabcount b{color:var(--ink)}
+
+  /* ---------- Filters ---------- */
+  .filters{display:flex;flex-direction:column;gap:12px;margin:6px 0 18px}
+  .filterRow{display:flex;flex-wrap:wrap;gap:7px;align-items:center}
+  .filterRow .lbl{
+    font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.1em;
+    text-transform:uppercase;color:var(--muted);width:74px;flex:none;
+  }
+  .chip{
+    border:1px solid var(--line);background:#fff;color:var(--ink);
+    font-size:13px;padding:6px 12px;border-radius:999px;cursor:pointer;transition:all .14s;
+  }
+  .chip:hover{border-color:var(--teal)}
+  .chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .chip:focus-visible{outline:2px solid var(--coral);outline-offset:2px}
+  .searchbox{
+    flex:1;min-width:160px;border:1px solid var(--line);border-radius:11px;
+    padding:9px 13px;font-size:14px;font-family:"Inter";background:#fff;color:var(--ink);
+  }
+  .searchbox:focus{outline:2px solid var(--teal);outline-offset:1px;border-color:var(--teal)}
+
+  /* ---------- Cards grid ---------- */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:16px}
+  .card{
+    background:#fff;border:1px solid var(--line);border-radius:16px;
+    padding:16px 16px 14px;box-shadow:var(--shadow);
+    display:flex;flex-direction:column;transition:transform .15s,box-shadow .15s;
+  }
+  .card:hover{transform:translateY(-2px);box-shadow:0 12px 30px -14px rgba(11,59,71,.32)}
+  .card .top{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:8px}
+  .catChip{
+    display:inline-flex;align-items:center;gap:6px;
+    font-size:11.5px;font-weight:600;padding:4px 9px;border-radius:999px;color:#fff;white-space:nowrap;
+  }
+  .cat-mat{background:var(--gold)}
+  .cat-bad{background:var(--sea-600)}
+  .cat-terme{background:var(--teal)}
+  .cat-kultur{background:var(--clay)}
+  .price{font-family:"Space Mono",monospace;font-size:13px;color:var(--muted);font-weight:700;letter-spacing:.04em}
+  .card h3{font-family:"Fraunces",serif;font-weight:600;font-size:20px;margin:2px 0 3px;line-height:1.12}
+  .card .area{
+    font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.06em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:9px;display:flex;gap:8px;align-items:center;
+  }
+  .card .area .rt{color:var(--gold);font-weight:700}
+  .card p.desc{font-size:13.5px;color:#3a4d4a;margin:0 0 10px}
+  .card .tags{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:11px}
+  .ttag{font-size:11px;color:var(--sea-700);background:#EAF2F1;border-radius:6px;padding:2px 7px}
+  .card .tip{
+    font-size:12.5px;color:#4a5a57;border-left:2px solid var(--aqua);
+    padding-left:10px;margin:0 0 12px;font-style:italic;
+  }
+  .card .meta{font-size:11.5px;color:var(--muted);margin-bottom:12px}
+  .card .actions{margin-top:auto;display:flex;gap:8px;align-items:center}
+  .addsel{
+    flex:1;font-family:"Inter";font-size:13px;border:1px solid var(--line);
+    border-radius:10px;padding:9px 10px;background:#F8FBFA;color:var(--ink);cursor:pointer;
+  }
+  .addsel:focus{outline:2px solid var(--teal);outline-offset:1px}
+  .maplink{
+    flex:none;width:38px;height:38px;border:1px solid var(--line);border-radius:10px;
+    display:grid;place-items:center;color:var(--sea-600);text-decoration:none;background:#fff;transition:.14s;
+  }
+  .maplink:hover{background:var(--sea-900);color:#fff;border-color:var(--sea-900)}
+  .assignedChips{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
+  .dchip{
+    font-family:"Space Mono",monospace;font-size:10.5px;background:var(--sea-900);color:#fff;
+    border-radius:6px;padding:3px 7px;display:inline-flex;gap:6px;align-items:center;
+  }
+  .dchip button{background:none;border:none;color:#9ad;cursor:pointer;font-size:13px;line-height:1;padding:0}
+  .dchip button:hover{color:#fff}
+
+  /* ---------- Plan view ---------- */
+  .planhead{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin:6px 0 18px}
+  .planhead .sum{font-size:13.5px;color:var(--muted)}
+  .planhead .sum b{color:var(--ink);font-family:"Space Mono",monospace}
+  .planbtns{display:flex;gap:8px;flex-wrap:wrap}
+  .btn{
+    font-family:"Inter";font-weight:600;font-size:13px;border-radius:10px;
+    padding:9px 14px;cursor:pointer;border:1px solid var(--line);background:#fff;color:var(--ink);transition:.14s;
+  }
+  .btn:hover{border-color:var(--teal)}
+  .btn:focus-visible{outline:2px solid var(--coral);outline-offset:2px}
+  .btn.primary{background:var(--coral);border-color:var(--coral);color:#fff}
+  .btn.primary:hover{background:#cf5638}
+
+  .day{
+    display:grid;grid-template-columns:128px 1fr;gap:0;
+    border:1px solid var(--line);border-radius:16px;overflow:hidden;
+    background:#fff;margin-bottom:14px;box-shadow:var(--shadow);
+  }
+  .day .rail{
+    padding:16px 14px;color:#fff;position:relative;
+    display:flex;flex-direction:column;justify-content:space-between;min-height:118px;
+  }
+  .rail.ischia{background:linear-gradient(160deg,var(--sea-700),var(--teal))}
+  .rail.napoli{background:linear-gradient(160deg,#9c3f23,var(--coral))}
+  .rail.transfer{background:linear-gradient(120deg,var(--teal) 0%,var(--teal) 45%,var(--coral) 55%,var(--coral) 100%)}
+  .rail .dnum{font-family:"Space Mono",monospace;font-size:11px;letter-spacing:.1em;opacity:.85}
+  .rail .dday{font-family:"Fraunces",serif;font-size:23px;font-weight:600;line-height:1;margin-top:2px}
+  .rail .dbase{font-size:11px;margin-top:auto;opacity:.92;display:flex;align-items:center;gap:6px}
+  .rail .dbase svg{flex:none}
+  .day .body{padding:14px 16px}
+  .day .note{font-size:12.5px;color:var(--muted);margin-bottom:10px;display:flex;gap:8px;align-items:flex-start}
+  .day .note svg{flex:none;margin-top:2px;color:var(--clay)}
+  .slot{
+    display:flex;align-items:center;gap:11px;padding:9px 0;border-top:1px dashed var(--line);
+  }
+  .slot:first-of-type{border-top:none}
+  .slot .sdot{width:8px;height:8px;border-radius:50%;flex:none}
+  .slot .sname{font-size:14px;font-weight:500;flex:1}
+  .slot .sname small{display:block;font-family:"Space Mono",monospace;font-size:10.5px;color:var(--muted);font-weight:400;letter-spacing:.04em}
+  .slot .scost{font-family:"Space Mono",monospace;font-size:12px;color:var(--muted)}
+  .slot .srm{background:none;border:none;color:#bbb;cursor:pointer;font-size:17px;line-height:1;padding:2px 4px}
+  .slot .srm:hover{color:var(--coral)}
+  .day .empty{font-size:13px;color:#9aa6a3;font-style:italic;padding:6px 0}
+  .day .daycost{
+    margin-top:10px;padding-top:9px;border-top:1px solid var(--line);
+    font-family:"Space Mono",monospace;font-size:11.5px;color:var(--muted);display:flex;justify-content:space-between;
+  }
+  .day .daycost b{color:var(--ink)}
+
+  .distrow{margin:-3px 0 9px}
+  .distpill{display:inline-flex;align-items:center;gap:5px;font-family:"Space Mono",monospace;font-size:10.5px;letter-spacing:.02em;padding:3px 8px;border-radius:6px}
+  .distpill svg{flex:none}
+  .distpill.near{background:#E1F0E9;color:#1c7a5a}
+  .distpill.walk{background:#EAF2F1;color:var(--sea-700)}
+  .distpill.far{background:#F3E9E2;color:var(--clay)}
+  #map{height:70vh;min-height:420px;border-radius:16px;border:1px solid var(--line);overflow:hidden;position:relative;z-index:0}
+  .mapbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;margin:6px 0 12px}
+  .maplegend{display:flex;gap:13px;flex-wrap:wrap;margin-left:auto;font-size:12px;color:var(--muted)}
+  .maplegend span{display:inline-flex;align-items:center;gap:5px}
+  .maplegend i{width:11px;height:11px;border-radius:50%;display:inline-block;border:1px solid #fff;box-shadow:0 0 0 1px rgba(0,0,0,.18)}
+  .pin span{display:block;width:100%;height:100%;border-radius:50%;border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.45)}
+  .pin.hotel span{background:#0B3B47;border:3px solid #E2674A}
+  .mpop b{font-family:"Fraunces",serif;font-size:15px;color:var(--ink)}
+  .mmeta{font-family:"Space Mono",monospace;font-size:10.5px;color:var(--muted);margin:3px 0 7px}
+  .mlinks{display:flex;gap:12px}
+  .mlinks a{font-size:12px;font-weight:600;color:var(--sea-600);text-decoration:none}
+  .mlinks a:hover{text-decoration:underline}
+  .maplink.book{color:var(--clay)}
+  .maplink.book:hover{background:var(--clay);color:#fff;border-color:var(--clay)}
+  .sbook{flex:none;width:28px;height:28px;display:grid;place-items:center;color:var(--sea-600);border-radius:7px;text-decoration:none}
+  .sbook:hover{background:#EAF2F1}
+  .hidden{display:none !important}
+  .footnote{font-size:12px;color:var(--muted);margin-top:20px;max-width:70ch}
+  .footnote code{font-family:"Space Mono",monospace;background:#EFEAdd;padding:1px 5px;border-radius:4px}
+
+  .toast{
+    position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);
+    background:var(--sea-900);color:#fff;padding:11px 18px;border-radius:12px;font-size:13.5px;
+    box-shadow:0 10px 30px -8px rgba(11,59,71,.5);opacity:0;pointer-events:none;transition:all .25s;z-index:60;
+  }
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+
+  @media(max-width:560px){
+    .day{grid-template-columns:96px 1fr}
+    .rail .dday{font-size:19px}
+    .filterRow .lbl{width:100%}
+  }
+  @media(prefers-reduced-motion:reduce){*{transition:none !important}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">03–12 august 2026 · 2 reisende · fra Oslo</p>
+    <h1>En rolig sommer på <em>Ischia</em>,<br>en smak av <em>Napoli</em></h1>
+    <p class="lede">Din egen reiseguide for vulkanske bad, lokal vin og kveldsmat med utsikt — kuratert for to som liker god mat, klart vann og litt ro mellom slagene. Bla i forslagene under «Utforsk», og fest dem til dagene dine i «Min plan».</p>
+    <div class="basebar">
+      <div class="baseTag"><span class="dot ischia"></span><b>Ischia</b> — Hotel Terme Principe, Lacco Ameno <span class="date">3.–10. aug</span></div>
+      <div class="baseTag"><span class="dot napoli"></span><b>Napoli</b> — Exe Majestic, Chiaia <span class="date">10.–12. aug</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+  <div class="tabs" role="tablist">
+    <button class="tab" id="tab-explore" role="tab" aria-selected="true" onclick="showView('explore')">Utforsk</button>
+    <button class="tab" id="tab-plan" role="tab" aria-selected="false" onclick="showView('plan')">Min plan</button>
+    <button class="tab" id="tab-map" role="tab" aria-selected="false" onclick="showView('map')">Kart</button>
+    <div class="tabcount" id="tabcount"></div>
+  </div>
+
+  <!-- EXPLORE VIEW -->
+  <section id="view-explore">
+    <div class="filters">
+      <div class="filterRow">
+        <span class="lbl">Sted</span>
+        <button class="chip" data-fbase="all" aria-pressed="true" onclick="setFilter('base','all',this)">Alle</button>
+        <button class="chip" data-fbase="ischia" aria-pressed="false" onclick="setFilter('base','ischia',this)">Ischia</button>
+        <button class="chip" data-fbase="napoli" aria-pressed="false" onclick="setFilter('base','napoli',this)">Napoli</button>
+      </div>
+      <div class="filterRow">
+        <span class="lbl">Type</span>
+        <button class="chip" data-fcat="all" aria-pressed="true" onclick="setFilter('cat','all',this)">Alle</button>
+        <button class="chip" data-fcat="mat" aria-pressed="false" onclick="setFilter('cat','mat',this)">Mat &amp; vin</button>
+        <button class="chip" data-fcat="bad" aria-pressed="false" onclick="setFilter('cat','bad',this)">Bad &amp; dykk</button>
+        <button class="chip" data-fcat="terme" aria-pressed="false" onclick="setFilter('cat','terme',this)">Terme &amp; spa</button>
+        <button class="chip" data-fcat="kultur" aria-pressed="false" onclick="setFilter('cat','kultur',this)">Kultur &amp; natur</button>
+      </div>
+      <div class="filterRow">
+        <span class="lbl">Budsjett</span>
+        <button class="chip" data-fbud="all" aria-pressed="true" onclick="setFilter('bud','all',this)">Alle</button>
+        <button class="chip" data-fbud="1" aria-pressed="false" onclick="setFilter('bud','1',this)">€</button>
+        <button class="chip" data-fbud="2" aria-pressed="false" onclick="setFilter('bud','2',this)">€€</button>
+        <button class="chip" data-fbud="3" aria-pressed="false" onclick="setFilter('bud','3',this)">€€€</button>
+        <input class="searchbox" id="search" placeholder="Søk etter sted, rett, vibb…" oninput="render()">
+      </div>
+      <div class="filterRow">
+        <span class="lbl">Avstand</span>
+        <button class="chip" data-fdist="all" aria-pressed="true" onclick="setFilter('dist','all',this)">Alle</button>
+        <button class="chip" data-fdist="near" aria-pressed="false" onclick="setFilter('dist','near',this)">≤10 min gange</button>
+        <button class="chip" data-fdist="walk" aria-pressed="false" onclick="setFilter('dist','walk',this)">≤30 min gange</button>
+        <button class="chip" data-fdist="far" aria-pressed="false" onclick="setFilter('dist','far',this)">Buss / båt / taxi</button>
+      </div>
+    </div>
+    <div class="grid" id="grid"></div>
+  </section>
+
+  <!-- PLAN VIEW -->
+  <section id="view-plan" class="hidden">
+    <div class="planhead">
+      <div class="sum" id="plansum"></div>
+      <div class="planbtns">
+        <button class="btn primary" onclick="applyRecommended()">Bruk anbefalt plan</button>
+        <button class="btn" onclick="clearPlan()">Nullstill</button>
+      </div>
+    </div>
+    <div id="days"></div>
+    <p class="footnote">Prisene er grove estimater per person (mat = ett måltid, aktiviteter = inngang/tur) og bare ment som et nivå-anslag — ikke en fasit. Planen lagres automatisk, så du kan komme tilbake hit senere og fortsette der du slapp. <span id="storagenote"></span></p>
+  </section>
+
+  <!-- KART VIEW -->
+  <section id="view-map" class="hidden">
+    <div class="mapbar">
+      <button class="btn" onclick="fitRegion('ischia')">Ischia</button>
+      <button class="btn" onclick="fitRegion('napoli')">Napoli</button>
+      <div class="maplegend">
+        <span><i style="background:#C99238"></i>Mat &amp; vin</span>
+        <span><i style="background:#16707F"></i>Bad &amp; dykk</span>
+        <span><i style="background:#2E8C8C"></i>Terme &amp; spa</span>
+        <span><i style="background:#B5683C"></i>Kultur &amp; natur</span>
+        <span><i style="background:#0B3B47;border-color:#E2674A"></i>Hotell</span>
+      </div>
+    </div>
+    <div id="map"></div>
+    <p class="footnote">Trykk en markør for navn, avstand fra hotellet og lenker til kart og nettside/booking. Kartet trenger nett for å laste flisene.</p>
+  </section>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* ---------------- Data ---------------- */
+const DAYS = [
+  {id:"d3",  date:"SØN 3. AUG",  name:"Ankomst",   base:"ischia",  type:"ischia",
+   note:"Fly Oslo→Napoli, hurtigbåt til Ischia og innsjekk i Lacco Ameno. Ta det rolig — bukta San Montano ligger få minutter unna."},
+  {id:"d4",  date:"MAN 4. AUG",  name:"Mandag",    base:"ischia",  type:"ischia", note:""},
+  {id:"d5",  date:"TIR 5. AUG",  name:"Tirsdag",   base:"ischia",  type:"ischia", note:""},
+  {id:"d6",  date:"ONS 6. AUG",  name:"Onsdag",    base:"ischia",  type:"ischia", note:""},
+  {id:"d7",  date:"TOR 7. AUG",  name:"Torsdag",   base:"ischia",  type:"ischia", note:""},
+  {id:"d8",  date:"FRE 8. AUG",  name:"Fredag",    base:"ischia",  type:"ischia", note:""},
+  {id:"d9",  date:"LØR 9. AUG",  name:"Lørdag",    base:"ischia",  type:"ischia", note:"Siste hele dag på øya."},
+  {id:"d10", date:"SØN 10. AUG", name:"Overgang",  base:"napoli",  type:"transfer",
+   note:"Utsjekk Ischia, båt til Napoli og innsjekk i Chiaia. Ettermiddag/kveld i byen."},
+  {id:"d11", date:"MAN 11. AUG", name:"Mandag",    base:"napoli",  type:"napoli", note:""},
+  {id:"d12", date:"TIR 12. AUG", name:"Hjemreise", base:"napoli",  type:"napoli",
+   note:"Avreise. Bruk formiddagen til en siste espresso og en rolig runde før flyet."}
+];
+
+const CATLABEL = {mat:"Mat & vin", bad:"Bad & dykk", terme:"Terme & spa", kultur:"Kultur & natur"};
+const WALK_SVG = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="4" r="1.6"/><path d="M11 21l1.5-6L9 12V8l4-1 2 3 3 1"/><path d="M8 21l2.5-5"/></svg>';
+const BUS_SVG = '<svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="12" rx="2"/><path d="M4 11h16"/><circle cx="8" cy="19" r="1.3"/><circle cx="16" cy="19" r="1.3"/></svg>';
+const GLOBE_SVG = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/></svg>';
+
+// base: ischia / napoli — bud: 1..3 (€) — cost: ca. EUR pp
+const A = [
+  // ---- ISCHIA · mat & vin ----
+  {id:"pietratorcia", n:"Cantine Pietratorcia", area:"Forio", base:"ischia", cat:"mat", bud:2, cost:45, rt:4.7,
+   tags:["mat&vin","romantisk"], hours:"Stengt man · lunsj & middag",
+   desc:"Familiedrevet vingård og restaurant. Menyen følger det som er modent på gården, og husets egen Biancolella serveres til.",
+   tip:"Be om å smake øyas hvite druer — Luigi og familien deler gjerne friske druer rett fra ranken.", pid:"ChIJOWbR_ABBOxMRF5h3gW5hPfs"},
+  {id:"sarace", n:"Saracè Mare", area:"Forio (Cigliano)", base:"ischia", cat:"mat", bud:3, cost:60, rt:4.8,
+   tags:["mat&vin","romantisk","bading"], hours:"Åpent daglig · lunsj→sent",
+   desc:"Mange mener dette er øyas beste fiskerestaurant. Helt nede ved vannet, ferskeste råvarer, originale retter og solnedgang.",
+   tip:"Verten Antonio behandler deg som familie — etter maten kan du ofte ligge i solsenga på stranda rett nedenfor.", pid:"ChIJaypIV3tBOxMR_EKhu8CrARc"},
+  {id:"coreacore", n:"Ristorante Core a Core", area:"Forio havn", base:"ischia", cat:"mat", bud:2, cost:42, rt:4.8,
+   tags:["mat&vin"], hours:"Stengt ons",
+   desc:"Avslappet sjømat ved havnepromenaden i Forio. Liten meny, sterke pastaretter og gratis husvin til maten.",
+   tip:"Reservér — den lille terrassen fylles fort. Spør etter dagens spaghettoni med blekksprut.", pid:"ChIJ0Z0Dz2ZBOxMR8WBLOazp3a8"},
+  {id:"auras", n:"Restaurant Auras", area:"Ischia Ponte", base:"ischia", cat:"mat", bud:3, cost:70, rt:4.9,
+   tags:["mat&vin","romantisk","kultur"], hours:"Lunsj & middag daglig",
+   desc:"Den beste utsikten mot det opplyste Castello Aragonese. Forfinet kjøkken — gnocchi med hummer er signaturen.",
+   tip:"Be om bord ute ved blå time når borgen tennes. La servitøren sette sammen vinmenyen.", pid:"ChIJ-xVLBZtrOxMRJtCnJGXuJ-w"},
+  {id:"nonnasofia", n:"Ristorante Nonna Sofia", area:"Ischia Ponte", base:"ischia", cat:"mat", bud:2, cost:40, rt:4.9,
+   tags:["mat&vin","introvert"], hours:"Åpent daglig 12–23",
+   desc:"Lite, hyggelig og elsket. Velprøvd lokal mat — prøv kaninporchetta (coniglio), øyas klassiker, og grillet blekksprut.",
+   tip:"Intimt og uten ståhei — perfekt for en stille middag for to. Spør Salvatore om anbefalinger.", pid:"ChIJMz3tp3VrOxMRlx6_z6Sd-Pg"},
+  {id:"daciccio", n:"Da Ciccio", area:"Ischia Ponte", base:"ischia", cat:"mat", bud:2, cost:38, rt:4.3,
+   tags:["mat&vin"], hours:"Stengt man",
+   desc:"Familierestaurant med fersk sjømat og utsikt til borgen. Verten Carlo deler gjerne historier (og fotoalbum) om øya.",
+   tip:"Avslutt med tiramisùen og en limoncello på huset.", pid:"ChIJkRpEmN9qOxMRjnbI1QAZdVU"},
+  {id:"villasirena", n:"Villa Sirena", area:"Sant'Angelo", base:"ischia", cat:"mat", bud:3, cost:62, rt:4.8,
+   tags:["mat&vin","romantisk"], hours:"Stengt man",
+   desc:"Terrasse høyt over Sant'Angelo med uslåelig panorama. Fersk tunfisk, mør kanin og solnedgang over havet.",
+   tip:"Ta den korte stigningen opp i stedet for restaurantene nede ved havna — utsikten er verdt hvert trinn.", pid:"ChIJbfBVHYtBOxMR1NPGJdrw3II"},
+  {id:"deus", n:"Deus Neptunus", area:"Sant'Angelo", base:"ischia", cat:"mat", bud:2, cost:45, rt:4.5,
+   tags:["mat&vin","romantisk"], hours:"Åpent daglig",
+   desc:"Romantisk sjømat midt i den bilfrie landsbyen. Blåskjell, muslinger og fersk pasta — flere har forlovet seg her.",
+   tip:"Be om bord ute mot havna. Den blå spirulina-spaghettien er en snakkis.", pid:"ChIJr1tI6L9BOxMRZlOHfkmRjPg"},
+  {id:"pirata", n:"La Tavernetta del Pirata", area:"Sant'Angelo", base:"ischia", cat:"mat", bud:1, cost:28, rt:4.6,
+   tags:["mat&vin","avslapp"], hours:"Åpent daglig 10–23",
+   desc:"Familiedrevet, rett ved den lille havna. Bra for en lett lunsj, en spritz eller en uformell kveld.",
+   tip:"Bestill en Rucolino-spritz — laget av lokal ruccola, en Ischia-spesialitet.", pid:"ChIJyRzDd6ZBOxMR-4fJDE0np9E"},
+  {id:"casadambra", n:"Casa D'Ambra — vinsmaking", area:"Forio / Panza", base:"ischia", cat:"mat", bud:2, cost:28, rt:4.5,
+   tags:["mat&vin","unik"], hours:"Stengt søn · book på forhånd",
+   desc:"Øyas mest kjente vinhus. Omvisning i kjelleren og smaking av Ischia-viner med ost og kjeks — gjerne i solnedgang.",
+   tip:"Bestill morgenslot rundt 09:30 for ro. Lokalbussen stopper ti minutters gange unna.", pid:"ChIJP4PpXudBOxMRMaDkiN6uzLc"},
+  {id:"calise", n:"Bar Calise", area:"Ischia Porto", base:"ischia", cat:"mat", bud:1, cost:8, rt:4.0,
+   tags:["mat","avslapp"], hours:"Åpent daglig 7–23",
+   desc:"Historisk pasticceria og iskrembar i en frodig hage. Cornetto og espresso om morgenen, gelato på kvelden.",
+   tip:"Et institusjon blant lokale. Ta en cornetto før strandturen.", pid:"ChIJuc3KNdtqOxMRpVvXXAFJuE0"},
+
+  // ---- ISCHIA · bad & dykk ----
+  {id:"sanmontano", n:"Baia di San Montano", area:"Lacco Ameno", base:"ischia", cat:"bad", bud:1, cost:0, rt:null,
+   tags:["bading","avslapp","romantisk"], hours:"Dagtid",
+   desc:"Skjermet, grunn og krystallklar bukt — noe av det roligste vannet på øya. Bare minutter fra hotellet ditt.",
+   tip:"Perfekt for første dag: enkel innsvømming, snorkel og en lat ettermiddag rett ved basen.", pid:"ChIJ3al55XlAOxMRYx8yX6CoZoE"},
+  {id:"sorgeto", n:"Sorgeto-bukta", area:"Forio (Panza)", base:"ischia", cat:"bad", bud:1, cost:5, rt:4.5,
+   tags:["bading","unik","introvert"], hours:"Åpent hele døgnet",
+   desc:"Naturlig varmkilde der vulkansk termalvann møter havet — bad i veksling mellom varmt og kaldt vann mot klippene.",
+   tip:"Kom tidlig på morgenen for å ha bukta nesten for dere selv. Ta med badesko — siste ~200 trinn og glatte steiner.", pid:"ChIJ8dmkDJhBOxMRUKEfrz0Hu2s"},
+  {id:"maronti", n:"Spiaggia dei Maronti", area:"Barano / Sant'Angelo", base:"ischia", cat:"bad", bud:1, cost:0, rt:4.4,
+   tags:["bading","avslapp"], hours:"Dagtid",
+   desc:"Øyas lengste strand med svart vulkansk sand og god plass. Lite mas om solsenger sammenlignet med andre strender.",
+   tip:"Tidlig morgen er stranda nesten folketom og helt nydelig. Vanntaxi går til/fra Sant'Angelo.", pid:"ChIJnwXdFtxBOxMRQPJAlD1tO-o"},
+  {id:"ansdiving", n:"ANS Diving — dykk & snorkel", area:"Ischia Ponte", base:"ischia", cat:"bad", bud:3, cost:80, rt:5.0,
+   tags:["dykking","bading","unik"], hours:"Etter avtale",
+   desc:"Små grupper, marint vernet område (Regno di Nettuno), grotter og rikt liv — blekksprut, muréner, sjøstjerner.",
+   tip:"Tålmodige guider, fint også for nybegynnere/engstelige. Flere par fremhever dette som turens høydepunkt.", pid:"ChIJkUq3lt9qOxMRCTgzrHG-wtY"},
+  {id:"ischiadiving", n:"Ischia Diving Center", area:"Ischia Porto", base:"ischia", cat:"bad", bud:2, cost:55, rt:4.9,
+   tags:["dykking","bading"], hours:"Daglig 8–19",
+   desc:"Vennlig senter med snorkel- og dykketurer med RIB-båt til grotter og fine viker. Te og snacks om bord.",
+   tip:"Svar raskt på e-post og fleksible — fint hvis dere bestemmer dere i siste liten.", pid:"ChIJoRxr1rdqOxMR5tHsHtyorzg"},
+  {id:"boat", n:"Privat båttur rundt øya", area:"Lacco Ameno / Porto", base:"ischia", cat:"bad", bud:3, cost:120, rt:5.0,
+   tags:["bading","romantisk","unik","introvert"], hours:"Halv/hel dag",
+   desc:"Egen liten båt rundt Ischia (og evt. Procida): bading i viker, en grotte med termalvann, snacks, drikke og musikk.",
+   tip:"Det mest private og romantiske du kan gjøre — dere bestemmer tempoet. Velg halvdag hvis dere vil ha resten av dagen rolig.", pid:"ChIJx92vpO1rOxMRhUlFZU0VB1E"},
+
+  // ---- ISCHIA · terme & spa ----
+  {id:"negombo", n:"Negombo", area:"Lacco Ameno", base:"ischia", cat:"terme", bud:3, cost:38, rt:4.5,
+   tags:["avslapp","bading"], hours:"Daglig 8:30–19",
+   desc:"Designet termalhage ved San Montano-bukta: en rekke bassenger i ulike temperaturer, frodig park og egen strand.",
+   tip:"Ligger rett ved hotellet ditt — en deilig hel dag med veksling mellom basseng og bukt.", pid:"ChIJc4sL8HlAOxMREYID8gTG75Y"},
+  {id:"poseidon", n:"Giardini Poseidon Terme", area:"Forio (Citara)", base:"ischia", cat:"terme", bud:3, cost:40, rt:4.7,
+   tags:["avslapp","bading"], hours:"Daglig 9–19",
+   desc:"Øyas store termalpark ved Citara-bukta: over tjue bassenger fra 15 til 40 grader, sjøutsikt og egen strand.",
+   tip:"Sett av en hel dag. Ta med badehette (kan kreves) og håndkle.", pid:"ChIJU5uS311BOxMRj2xPTJWjhIs"},
+  {id:"cavascura", n:"Antiche Terme di Cavascura", area:"Maronti", base:"ischia", cat:"terme", bud:2, cost:25, rt:4.4,
+   tags:["unik","avslapp"], hours:"Daglig 8:30–18",
+   desc:"Rustikke bad brukt siden romertiden, gjemt i en kløft bak Maronti. Badstuen er hugget inn i fjellet og varmes av kilden.",
+   tip:"Lite og enkelt, men selve badstu-grotta er en helt egen opplevelse. Nås til fots fra Maronti-stranda.", pid:"ChIJ4RP3ziVBOxMRruwjRA3Sdi0"},
+
+  // ---- ISCHIA · kultur & natur ----
+  {id:"castello", n:"Castello Aragonese", area:"Ischia Ponte", base:"ischia", cat:"kultur", bud:2, cost:12, rt:4.7,
+   tags:["kultur","romantisk"], hours:"Daglig 9–18:30",
+   desc:"Borg på en egen liten øy, knyttet til land med en steinbro. Lag på lag av historie, hager, kirker og panorama.",
+   tip:"Overraskende rolig tross populariteten. Sett av 2–3 timer og ta en kaffe på terrassen med utsikt.", pid:"ChIJF4T0schqOxMRMK63P_Amcfg"},
+  {id:"mortella", n:"Giardini La Mortella", area:"Forio", base:"ischia", cat:"kultur", bud:2, cost:20, rt:4.8,
+   tags:["avslapp","introvert","romantisk"], hours:"Tir·tor·lør·søn 9–18",
+   desc:"En av Italias vakreste botaniske hager, anlagt av komponisten William Waltons familie. Dammer, orkidéer og stillhet.",
+   tip:"Rolig og kontemplativ — en av øyas mest introvert-vennlige opplevelser. Sjekk om det er konsert samme dag.", pid:"ChIJ1481o3xAOxMRXoDAZW1J5zM"},
+  {id:"santangelo", n:"Sant'Angelo (landsby)", area:"Serrara Fontana", base:"ischia", cat:"kultur", bud:1, cost:0, rt:null,
+   tags:["romantisk","introvert","avslapp"], hours:"Når som helst",
+   desc:"Bilfri fiskerlandsby med pastellhus, små butikker og en piazzetta ved vannet. Skapt for å rusle og bare være.",
+   tip:"Kom mot ettermiddagen for aperitivo ved havna før dagsturistene drar.", pid:"ChIJGfPc3L5BOxMR0zUnMvHkQCE"},
+
+  // ---- NAPOLI · mat & vin ----
+  {id:"michele", n:"L'Antica Pizzeria da Michele", area:"Centro storico", base:"napoli", cat:"mat", bud:1, cost:10, rt:4.3,
+   tags:["mat"], hours:"Daglig 11–23",
+   desc:"Den legendariske, ribbede pizzeriaen — tre enkle valg, perfekt deig, latterlig billig. Et stykke Napoli-historie.",
+   tip:"Kan ha lang kø. Gå rett etter åpning eller midt på ettermiddagen — eller ta med på gata.", pid:"ChIJebC2jT8IOxMRQrZlcy2Xslo"},
+  {id:"sorbillo", n:"Gino e Toto Sorbillo", area:"Via dei Tribunali", base:"napoli", cat:"mat", bud:2, cost:18, rt:4.5,
+   tags:["mat"], hours:"Stengt søn",
+   desc:"Napolis mest berømte pizzanavn på den historiske gata. Luftig kant, ekte buffelmozzarella — også sprø fritert pizza.",
+   tip:"Travelt. Sett navnet på lista litt før du vil spise, og rusle en runde i mellomtiden.", pid:"ChIJuyXzSEIIOxMR5KQy1mftAr0"},
+  {id:"gluu", n:"Gluu — naturvinbar", area:"Centro storico", base:"napoli", cat:"mat", bud:2, cost:22, rt:5.0,
+   tags:["mat&vin","introvert"], hours:"Stengt tir",
+   desc:"En stille perle for naturvin, med fortreffelig ost- og spekefat og dempet musikk. Lidenskapelige, kunnskapsrike verter.",
+   tip:"Rolig og koselig — akkurat passe for to. Be om å smake deg fram før du velger glass.", pid:"ChIJuymrQwAJOxMRu-7SXfNJcFw"},
+  {id:"indovino", n:"Indovino — vinbar", area:"Nær Via Toledo", base:"napoli", cat:"mat", bud:2, cost:22, rt:4.8,
+   tags:["mat&vin","introvert"], hours:"Kveld, fra 18",
+   desc:"Avslappet vinbar med viner i glass, vennlig service og et godt spekefat. Fin førstegangsintro til italiensk naturvin.",
+   tip:"Et rolig sted å lande på kvelden. Vegetar? Be om pinsaen deres med stracciatella.", pid:"ChIJ-QtRZvoJOxMRitFnEEc2mP4"},
+  {id:"officina", n:"Officina del Mare", area:"Borgo Marinari", base:"napoli", cat:"mat", bud:3, cost:65, rt:4.2,
+   tags:["mat&vin","romantisk"], hours:"Daglig, lunsj→sent",
+   desc:"Sjømat ute ved den lille marinaen under Castel dell'Ovo, med utsikt mot Vesuv. Klassisk smak med en moderne vri.",
+   tip:"Litt dyrere enn snittet i byen, men beliggenheten ved vannet er verdt det. Be om bord ute.", pid:"ChIJQ9bDf64JOxMRRcaflNkFu4s"},
+  {id:"luisella", n:"Donna Luisella", area:"Borgo Marinari", base:"napoli", cat:"mat", bud:3, cost:55, rt:4.2,
+   tags:["mat&vin","romantisk"], hours:"Stengt ons",
+   desc:"Sjømat rett foran båtene i Borgo Marinari, med direkte utsikt til Vesuv. Paccheri med skalldyr og fersk vongole.",
+   tip:"Et nydelig sted for en middag med utsikt. Spør om bord helt fremme ved vannet.", pid:"ChIJARc5Kj0JOxMRt9Boc444XQc"},
+  {id:"gayodin", n:"Gay-Odin", area:"Via Toledo", base:"napoli", cat:"mat", bud:1, cost:7, rt:4.4,
+   tags:["mat","avslapp"], hours:"Daglig 10–20",
+   desc:"Historisk sjokoladehus fra Napoli. Intense praliner, «foresta»-sjokolade og en gelato mange kaller byens beste.",
+   tip:"Perfekt liten stopp på vei ned Via Toledo. Prøv den varme sjokoladen hvis du tør.", pid:"ChIJJe2QYVsIOxMRpr1M_ERpkoo"},
+
+  // ---- NAPOLI · kultur ----
+  {id:"sansevero", n:"Cappella Sansevero", area:"Centro storico", base:"napoli", cat:"kultur", bud:1, cost:10, rt:4.7,
+   tags:["kultur","introvert"], hours:"Stengt tir",
+   desc:"Et lite kapell med marmorskulpturen «Den tilslørte Kristus» — sløret virker gjennomsiktig, hugget av én blokk marmor.",
+   tip:"Bestill tidsbillett på forhånd, og kom tidlig. Fotografering er ikke tillatt inne — bare se.", pid:"ChIJbRQXpEMIOxMRMRFoCnTu8R8"},
+  {id:"sotterranea", n:"Napoli Sotterranea", area:"Centro storico", base:"napoli", cat:"kultur", bud:2, cost:12, rt:4.7,
+   tags:["kultur","unik"], hours:"Daglig, guidet",
+   desc:"Guidet tur 40 meter under gatene: greske steinbrudd, romersk akvedukt og tilfluktsrom fra krigen. Smale, magiske ganger.",
+   tip:"Fortellerglade guider gjør turen. Ikke for deg som misliker trange rom — men ellers en perle.", pid:"ChIJBaUMSlIIOxMRGsTFJxHQ-G0"},
+  {id:"lungomare", n:"Lungomare & Mergellina", area:"Chiaia / Mergellina", base:"napoli", cat:"kultur", bud:1, cost:0, rt:4.8,
+   tags:["avslapp","romantisk","introvert"], hours:"Når som helst",
+   desc:"Den bilfrie sjøpromenaden langs bukta, med Vesuv i horisonten og Capri i det fjerne. Rolig rusling og folkeliv.",
+   tip:"Nydelig i solnedgang, og bare noen minutter fra hotellet ditt i Chiaia. Sett deg på klippene og se fergene gå.", pid:"ChIJB9aSaGIJOxMRFxtwXCtsIbA"},
+
+  // ---- ISCHIA · i nærheten av hotellet (Lacco Ameno) ----
+  {id:"zucchero", n:"Pasticceria Zucchero e Cannella", area:"Lacco Ameno", base:"ischia", cat:"mat", bud:1, cost:6, rt:4.6,
+   tags:["mat","avslapp"], hours:"Stengt tir",
+   desc:"Bakeri rett ved hotellet med øyas kanskje beste graffa og sfogliatelle — og rimelig. Også vegan- og glutenfrie alternativer.",
+   tip:"Den perfekte frokosten: stikk innom for en cornetto og kaffe før strandturen.", pid:"ChIJJZ89-HJAOxMRUrWZwvElz3w"},
+  {id:"antichisapori", n:"Antichi Sapori d'Ischia", area:"Lacco Ameno (Via Roma)", base:"ischia", cat:"mat", bud:2, cost:30, rt:4.6,
+   tags:["mat&vin","introvert"], hours:"Stengt ons",
+   desc:"Liten vin- og matbar full av lokale, et par minutter fra hotellet. Nydelig bøffelmozzarella, spekemat og lokal vin laget like i nærheten.",
+   tip:"Verten Carlo er stedets sjel — be om vinanbefaling, så blir det fort to kvelder.", pid:"ChIJ6RzlR3NAOxMRzbRVDqWq4VI"},
+  {id:"caterina", n:"Caterina a Mare", area:"Lacco Ameno", base:"ischia", cat:"mat", bud:2, cost:45, rt:4.5,
+   tags:["mat&vin","romantisk","bading"], hours:"Åpent daglig",
+   desc:"Sjømat rett ved sjøkanten i Lacco Ameno, med havbris og utsikt. Grillet blekksprut, kråkebollepasta og fersk fisk.",
+   tip:"Ikke ha det travelt — be om bord ute mot vannet og ta kvelden med ro.", pid:"ChIJ81iicU1BOxMR-AmCVpMWEEI"},
+  {id:"lestufe", n:"Le Stufe — osteria & cucina", area:"Lacco Ameno", base:"ischia", cat:"mat", bud:2, cost:42, rt:4.7,
+   tags:["mat&vin","romantisk"], hours:"Åpent daglig, kun middag",
+   desc:"Liten, forseggjort osteria på promenaden i Lacco Ameno. Kortreist meny, nydelig stemning og solnedgang — flere kaller det øyas beste måltid.",
+   tip:"Vil du ha kanin (coniglio), ring samme morgen så de setter av en porsjon til kvelden.", pid:"ChIJqc3mF3FAOxMRvrYWBXLKkk8"},
+  {id:"piccoletto", n:"Pizzeria Piccoletto", area:"Lacco Ameno", base:"ischia", cat:"mat", bud:1, cost:22, rt:4.6,
+   tags:["mat","avslapp"], hours:"Åpent daglig 10:30–24",
+   desc:"Hyggelig pizza- og pastasted på promenaden, drevet av vennlige Gianluca og Francesco. Uformelt og rimelig.",
+   tip:"Flere par har feiret her — det vanker gjerne en limoncello på huset til slutt.", pid:"ChIJG9TPKa1BOxMRkdVfILMdYio"},
+  {id:"gasparotto", n:"Gelateria Gasparotto", area:"Lacco Ameno (Via Roma)", base:"ischia", cat:"mat", bud:1, cost:6, rt:4.2,
+   tags:["mat","avslapp"], hours:"Stengt ons",
+   desc:"Av mange kalt øyas beste gelato, laget av eieren selv. Mange originale smaker, og alt er laktosefritt med vegan- og glutenfrie valg.",
+   tip:"Perfekt avslutning på en kveldstur langs promenaden.", pid:"ChIJnxkxGgBBOxMRLLoOY44B63o"},
+  {id:"ilfungo", n:"Lacco Ameno-promenaden & Il Fungo", area:"Lacco Ameno", base:"ischia", cat:"kultur", bud:1, cost:0, rt:null,
+   tags:["avslapp","romantisk","introvert","bading"], hours:"Når som helst",
+   desc:"Den lille sjøpromenaden forbi byens vartegn — den soppformede tuff-klippen «Il Fungo» — med en liten strand og kafeer langs veien.",
+   tip:"Rett utenfor døra. Fin for en rolig morgenkaffe eller en aperitivo i solnedgang ved vannet.", pid:"ChIJM2_mdXJAOxMRJrOzMz9OVb4"},
+
+  // ---- NAPOLI · i nærheten av hotellet (Chiaia) ----
+  {id:"mattiucci", n:"Pescheria Mattiucci", area:"Chiaia", base:"napoli", cat:"mat", bud:2, cost:45, rt:4.5,
+   tags:["mat&vin","introvert","romantisk"], hours:"Stengt man · lunsj & middag",
+   desc:"Intim fiskebar et par minutter fra hotellet — startet som fiskebutikk, nå et lite spisested kjent for crudo (rå fisk) og skalldyr av topp kvalitet.",
+   tip:"Lite og koselig — be eieren sette sammen crudo-fatet og velge vin. Perfekt for to.", pid:"ChIJm2rAkXUJOxMRVha5OqPkCJA"},
+  {id:"vinari", n:"Vinarì Chiaia", area:"Chiaia (Belledonne)", base:"napoli", cat:"mat", bud:2, cost:25, rt:4.6,
+   tags:["mat&vin","introvert","romantisk"], hours:"Stengt tir · kun kveld",
+   desc:"Elegant og intim vinbar med stort utvalg, kunnskapsrik betjening og en sjarmerende kjeller til smaking. Gode småretter og spekemat.",
+   tip:"Et rolig sted å lande på kvelden, noen minutter fra hotellet. Be om hjelp til å finne en lokal hvit.", pid:"ChIJHSa30UUJOxMRzXgj-e3Ap14"},
+  {id:"anticapizzeriachiaia", n:"Antica Pizzeria Chiaia", area:"Piazza Amedeo", base:"napoli", cat:"mat", bud:1, cost:14, rt:4.7,
+   tags:["mat","avslapp"], hours:"Stengt man",
+   desc:"Rustikk pizzeria som føles som hos bestemor — utmerket deig, friske råvarer og svært rimelig. Et gåvennlig alternativ til køene i sentrum.",
+   tip:"Prøv salsiccia e friarielli, eller pizza i panne. Hyggelige Simona tar imot.", pid:"ChIJGVNpOk8JOxMRM6jK-d08N9k"},
+  {id:"taverna", n:"Antica Taverna a Chiaia", area:"Chiaia", base:"napoli", cat:"mat", bud:2, cost:38, rt:4.5,
+   tags:["mat&vin"], hours:"Åpent daglig",
+   desc:"Klassisk napolitansk familierestaurant drevet av søstre — fersk fisk, blekksprutsalat og av og til allsang. Varm, ekte stemning.",
+   tip:"Livlig og folksomt — gå tidlig hvis dere vil ha det rolig. Reservér, og hold dere til dagens fisk.", pid:"ChIJKVKrCM8JOxMRdWY9HvkoF1E"},
+  {id:"ilgelatiere", n:"Il Gelatiere dal 1985", area:"Chiaia", base:"napoli", cat:"mat", bud:1, cost:5, rt:4.5,
+   tags:["mat","avslapp"], hours:"Åpent daglig til sent",
+   desc:"Et godt gelato-stopp midt i Chiaia, med bred smaksmeny inkludert vegan- og sukkerfrie valg. Mørk sjokolade (Nero di Modica) er en vinner.",
+   tip:"Fin å ta på vei mot sjøkanten en varm kveld.", pid:"ChIJHa8C2AEJOxMR9_sgE4-e3kY"},
+  {id:"villacomunale", n:"Villa Comunale & sjøkanten", area:"Chiaia / Riviera", base:"napoli", cat:"kultur", bud:1, cost:0, rt:null,
+   tags:["avslapp","romantisk","introvert"], hours:"Når som helst",
+   desc:"Bypark og sjøkant-promenade som starter rett nedenfor Chiaia. Parken er litt værbitt, men selve strandpromenaden langs Via Caracciolo med Vesuv i sikte er nydelig.",
+   tip:"En rolig kveldstur (passeggiata) rett fra hotellet, mot Castel dell'Ovo.", pid:"ChIJ4RppBT8JOxMRDrSexoDmWKs"}
+];
+
+// Anbefalt plan (respekterer åpningsdager)
+const RECOMMENDED = {
+  d3:["sanmontano","sarace"],
+  d4:["santangelo","villasirena"],
+  d5:["casadambra","poseidon","coreacore"],
+  d6:["boat","calise"],
+  d7:["mortella","sorgeto","pietratorcia"],
+  d8:["ansdiving","maronti","deus"],
+  d9:["castello","nonnasofia","auras"],
+  d10:["lungomare","luisella"],
+  d11:["sansevero","sotterranea","michele","gluu"],
+  d12:["gayodin"]
+};
+
+/* ---------------- State + storage ---------------- */
+const STORAGE_KEY = "ischia_napoli_plan_v1";
+let plan = {};        // dayId -> [activityId,...]
+let memOnly = false;  // fallback flag
+let filters = {base:"all", cat:"all", bud:"all", dist:"all"};
+const byId = Object.fromEntries(A.map(a=>[a.id,a]));
+
+/* ---- avstand fra hotellet (luftlinje × omvei, ~75 m/min gange) ---- */
+const HOTELG = { ischia:[40.7510252,13.8885183], napoli:[40.8359929,14.2374809] };
+const GEO = {
+  pietratorcia:[40.7158429,13.8669212], sarace:[40.7510268,13.8684636], coreacore:[40.7377652,13.8595808],
+  auras:[40.7328916,13.9587421], nonnasofia:[40.7321449,13.9596490], daciccio:[40.7320394,13.9595199],
+  villasirena:[40.6979363,13.8923635], deus:[40.6982597,13.8916157], pirata:[40.6968875,13.8935144],
+  casadambra:[40.715407,13.876239], calise:[40.7377874,13.9494690], sanmontano:[40.7556783,13.8790103],
+  sorgeto:[40.6993598,13.8781909], maronti:[40.6999338,13.9156679], ansdiving:[40.7317727,13.9596657],
+  ischiadiving:[40.7449045,13.9375033], boat:[40.7531639,13.8891322], negombo:[40.7567563,13.8780299],
+  poseidon:[40.7185112,13.8617162], cavascura:[40.7039471,13.9046008], castello:[40.7312809,13.9636135],
+  mortella:[40.751476,13.872821], santangelo:[40.7033478,13.883951],
+  zucchero:[40.7511204,13.8875753], antichisapori:[40.7522652,13.8900746], caterina:[40.7528478,13.8888624],
+  lestufe:[40.7527394,13.8827939], piccoletto:[40.7529435,13.888098], gasparotto:[40.7522251,13.8904976],
+  ilfungo:[40.7502875,13.8903541],
+  michele:[40.8497563,14.2633002], sorbillo:[40.850425,14.2553581], gluu:[40.8474525,14.2531990],
+  indovino:[40.848289,14.24837], officina:[40.8282883,14.2483216], luisella:[40.8278966,14.2486017],
+  gayodin:[40.8479413,14.2494102], sansevero:[40.8492951,14.2548837], sotterranea:[40.8372868,14.2454761],
+  lungomare:[40.8245684,14.221032], mattiucci:[40.8350853,14.2398665], anticapizzeriachiaia:[40.8372029,14.2339961],
+  vinari:[40.8347986,14.2402982], taverna:[40.8368305,14.2467483], ilgelatiere:[40.8347808,14.2359451],
+  villacomunale:[40.8327128,14.2341490]
+};
+function hav(a,b){
+  const R=6371000, toR=x=>x*Math.PI/180;
+  const dla=toR(b[0]-a[0]), dlo=toR(b[1]-a[1]);
+  const x=Math.sin(dla/2)**2+Math.cos(toR(a[0]))*Math.cos(toR(b[0]))*Math.sin(dlo/2)**2;
+  return 2*R*Math.asin(Math.sqrt(x));
+}
+function computeDistances(){
+  A.forEach(a=>{
+    const g=GEO[a.id];
+    if(!g){ a.walkMin=999; a.dist="far"; a.distLabel="—"; return; }
+    a.lat=g[0]; a.lng=g[1];
+    const road=hav(HOTELG[a.base],g)*1.3;
+    const wmin=Math.max(1,Math.round(road/75));
+    a.walkMin=wmin;
+    if(wmin<=10){ a.dist="near"; a.distLabel=wmin+" min å gå"; }
+    else if(wmin<=30){ a.dist="walk"; a.distLabel=wmin+" min å gå"; }
+    else if(a.base==="ischia"){ const bus=Math.round((road/1000)*4.5+10); a.dist="far"; a.distLabel="~"+bus+" min buss/taxi"; }
+    else { a.dist="far"; a.distLabel=wmin+" min å gå · evt. taxi"; }
+  });
+}
+
+function hasClaudeStorage(){ return typeof window!=="undefined" && window.storage && typeof window.storage.get==="function"; }
+function hasLocal(){ try{ const k="__isn_t"; localStorage.setItem(k,"1"); localStorage.removeItem(k); return true; }catch(e){ return false; } }
+
+async function loadPlan(){
+  try{
+    if(hasClaudeStorage()){
+      const r = await window.storage.get(STORAGE_KEY);
+      if(r && r.value) plan = JSON.parse(r.value);
+    } else if(hasLocal()){
+      const v = localStorage.getItem(STORAGE_KEY);
+      if(v) plan = JSON.parse(v);
+    } else {
+      memOnly = true;
+    }
+  }catch(e){ /* manglende nøkkel e.l. — start tom */ }
+  if(!plan || typeof plan !== "object") plan = {};
+}
+async function savePlan(){
+  try{
+    if(hasClaudeStorage()){ await window.storage.set(STORAGE_KEY, JSON.stringify(plan)); return; }
+    if(hasLocal()){ localStorage.setItem(STORAGE_KEY, JSON.stringify(plan)); return; }
+    memOnly = true;
+  }catch(e){
+    memOnly = true;
+    const n = document.getElementById("storagenote");
+    if(n) n.textContent = "Merk: lagring er ikke tilgjengelig her, så endringer beholdes bare i denne økten.";
+  }
+}
+
+/* ---------------- Rendering ---------------- */
+function catChipHTML(cat){
+  return '<span class="catChip cat-'+cat+'">'+CATLABEL[cat]+'</span>';
+}
+function priceMark(bud){ return "€".repeat(bud); }
+function mapsUrl(pid){ return "https://www.google.com/maps/place/?q=place_id:"+pid; }
+
+function assignedDaysFor(aid){
+  return DAYS.filter(d => (plan[d.id]||[]).includes(aid));
+}
+
+function dayOptionsFor(a){
+  // bare dager som matcher basen til aktiviteten
+  return DAYS.filter(d => d.base === a.base);
+}
+
+function render(){
+  const q = (document.getElementById("search").value||"").toLowerCase().trim();
+  const grid = document.getElementById("grid");
+  grid.innerHTML = "";
+  let shown = 0;
+
+  A.forEach(a=>{
+    if(filters.base!=="all" && a.base!==filters.base) return;
+    if(filters.cat!=="all" && a.cat!==filters.cat) return;
+    if(filters.bud!=="all" && String(a.bud)!==filters.bud) return;
+    if(filters.dist==="near" && a.walkMin>10) return;
+    if(filters.dist==="walk" && a.walkMin>30) return;
+    if(filters.dist==="far" && a.dist!=="far") return;
+    if(q){
+      const hay = (a.n+" "+a.area+" "+a.desc+" "+a.tags.join(" ")+" "+a.tip).toLowerCase();
+      if(!hay.includes(q)) return;
+    }
+    shown++;
+    const assigned = assignedDaysFor(a.id);
+    const opts = dayOptionsFor(a).map(d=>'<option value="'+d.id+'">'+d.date+' · '+d.name+'</option>').join("");
+    const tagHTML = a.tags.map(t=>'<span class="ttag">'+t+'</span>').join("");
+    const ratingHTML = a.rt ? '<span class="rt">★ '+a.rt.toFixed(1)+'</span>' : '';
+    const chipHTML = assigned.map(d=>'<span class="dchip">'+d.date.replace(" AUG","")+' <button title="Fjern" onclick="unassign(\''+a.id+'\',\''+d.id+'\')">×</button></span>').join("");
+
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML =
+      '<div class="top">'+catChipHTML(a.cat)+'<span class="price">'+priceMark(a.bud)+'</span></div>'+
+      '<h3>'+a.n+'</h3>'+
+      '<div class="area">'+a.area+' '+ratingHTML+'</div>'+
+      '<div class="distrow"><span class="distpill '+a.dist+'">'+(a.dist==="far"?BUS_SVG:WALK_SVG)+' '+a.distLabel+'</span></div>'+
+      '<p class="desc">'+a.desc+'</p>'+
+      '<div class="tags">'+tagHTML+'</div>'+
+      '<p class="tip">'+a.tip+'</p>'+
+      '<div class="meta">'+a.hours+' · ca. €'+a.cost+' pp</div>'+
+      '<div class="actions">'+
+        '<select class="addsel" onchange="assignFromSelect(\''+a.id+'\',this)">'+
+          '<option value="">Legg til dag…</option>'+opts+
+        '</select>'+
+        '<a class="maplink" href="'+mapsUrl(a.pid)+'" target="_blank" rel="noopener" title="Vis i Google Maps" aria-label="Vis i Google Maps">'+
+          '<svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-6-5.686-6-10a6 6 0 0 1 12 0c0 4.314-6 10-6 10Z"/><circle cx="12" cy="11" r="2"/></svg>'+
+        '</a>'+
+        '<a class="maplink book" href="'+bookUrl(a)+'" target="_blank" rel="noopener" title="Nettside / book" aria-label="Nettside eller book">'+GLOBE_SVG+'</a>'+
+      '</div>'+
+      (assigned.length ? '<div class="assignedChips">'+chipHTML+'</div>' : '');
+    grid.appendChild(card);
+  });
+
+  if(shown===0){
+    grid.innerHTML = '<p style="color:#9aa6a3;font-style:italic;grid-column:1/-1;padding:20px 0">Ingen treff med disse filtrene. Prøv å nullstille noen valg.</p>';
+  }
+  renderPlan();
+  updateCount();
+}
+
+function catColor(cat){
+  return ({mat:"var(--gold)",bad:"var(--sea-600)",terme:"var(--teal)",kultur:"var(--clay)"})[cat];
+}
+
+function renderPlan(){
+  const wrap = document.getElementById("days");
+  wrap.innerHTML = "";
+  let grandTotal = 0, grandCount = 0;
+
+  DAYS.forEach(d=>{
+    const items = (plan[d.id]||[]).map(id=>byId[id]).filter(Boolean);
+    // sorter: bad/terme/kultur (dag) før mat (kveld)
+    const order = {bad:0,terme:1,kultur:2,mat:3};
+    items.sort((x,y)=>order[x.cat]-order[y.cat]);
+    let dayCost = 0;
+
+    const slots = items.map(a=>{
+      dayCost += a.cost; grandTotal += a.cost; grandCount++;
+      return '<div class="slot">'+
+        '<span class="sdot" style="background:'+catColor(a.cat)+'"></span>'+
+        '<span class="sname">'+a.n+'<small>'+a.area+' · '+CATLABEL[a.cat]+' · '+a.distLabel+'</small></span>'+
+        '<span class="scost">€'+a.cost+'</span>'+
+        '<a class="sbook" href="'+bookUrl(a)+'" target="_blank" rel="noopener" title="Nettside / book" aria-label="Nettside eller book">'+GLOBE_SVG+'</a>'+
+        '<button class="srm" title="Fjern" onclick="unassign(\''+a.id+'\',\''+d.id+'\')">×</button>'+
+      '</div>';
+    }).join("");
+
+    const baseIcon = d.base==="ischia"
+      ? '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 18c2 0 2-2 4-2s2 2 4 2 2-2 4-2 2 2 4 2 2-2 4-2"/><path d="M12 2v8"/><path d="M8 6l4-4 4 4"/></svg>'
+      : '<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m3 21 4-12 4 6 3-9 6 15"/></svg>';
+    const baseLabel = d.base==="ischia" ? "Ischia" : "Napoli";
+
+    const day = document.createElement("div");
+    day.className = "day";
+    day.innerHTML =
+      '<div class="rail '+d.type+'">'+
+        '<div><div class="dnum">'+d.date+'</div><div class="dday">'+d.name+'</div></div>'+
+        '<div class="dbase">'+baseIcon+' '+baseLabel+'</div>'+
+      '</div>'+
+      '<div class="body">'+
+        (d.note ? '<div class="note"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><span>'+d.note+'</span></div>' : '')+
+        (items.length ? slots : '<div class="empty">Ingen aktiviteter lagt til ennå — bla i «Utforsk» og fest noe til denne dagen.</div>')+
+        (items.length ? '<div class="daycost"><span>'+items.length+' aktivitet'+(items.length>1?'er':'')+'</span><span>ca. <b>€'+dayCost+'</b> pp</span></div>' : '')+
+      '</div>';
+    wrap.appendChild(day);
+  });
+
+  const sum = document.getElementById("plansum");
+  if(grandCount===0){
+    sum.innerHTML = "Planen er tom. Trykk <b>Bruk anbefalt plan</b> for et ferdig forslag, eller bygg din egen.";
+  }else{
+    sum.innerHTML = "<b>"+grandCount+"</b> aktiviteter planlagt · grovt anslag <b>€"+grandTotal+"</b> per person totalt";
+  }
+}
+
+function updateCount(){
+  let c = 0; DAYS.forEach(d=> c += (plan[d.id]||[]).length);
+  document.getElementById("tabcount").innerHTML = '<b>'+c+'</b> i planen';
+}
+
+/* ---------------- Actions ---------------- */
+function assignFromSelect(aid, sel){
+  const dayId = sel.value; sel.value = "";
+  if(!dayId) return;
+  assign(aid, dayId);
+}
+function assign(aid, dayId){
+  if(!plan[dayId]) plan[dayId] = [];
+  if(!plan[dayId].includes(aid)){
+    plan[dayId].push(aid);
+    const a = byId[aid], d = DAYS.find(x=>x.id===dayId);
+    toast(a.n+" lagt til "+d.date.toLowerCase());
+  }
+  savePlan(); render();
+}
+function unassign(aid, dayId){
+  if(plan[dayId]){ plan[dayId] = plan[dayId].filter(x=>x!==aid); if(!plan[dayId].length) delete plan[dayId]; }
+  savePlan(); render();
+}
+function applyRecommended(){
+  plan = JSON.parse(JSON.stringify(RECOMMENDED));
+  savePlan(); render(); showView('plan');
+  toast("Anbefalt plan lagt inn — juster fritt herfra");
+}
+function clearPlan(){
+  plan = {}; savePlan(); render();
+  toast("Planen er nullstilt");
+}
+
+function setFilter(kind,val,el){
+  filters[kind]=val;
+  const sel = kind==="base" ? "fbase" : kind==="cat" ? "fcat" : kind==="bud" ? "fbud" : "fdist";
+  document.querySelectorAll('[data-'+sel+']').forEach(b=>b.setAttribute("aria-pressed", b.getAttribute("data-"+sel)===val ? "true":"false"));
+  render();
+}
+function showView(v){
+  document.getElementById("view-explore").classList.toggle("hidden", v!=="explore");
+  document.getElementById("view-plan").classList.toggle("hidden", v!=="plan");
+  document.getElementById("view-map").classList.toggle("hidden", v!=="map");
+  document.getElementById("tab-explore").setAttribute("aria-selected", v==="explore");
+  document.getElementById("tab-plan").setAttribute("aria-selected", v==="plan");
+  document.getElementById("tab-map").setAttribute("aria-selected", v==="map");
+  if(v==="map"){ initMap(); setTimeout(function(){ if(MAP){ MAP.invalidateSize(); } }, 60); }
+}
+
+let toastTimer;
+function toast(msg){
+  const t = document.getElementById("toast");
+  t.textContent = msg; t.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=>t.classList.remove("show"), 2200);
+}
+
+/* ---------------- Kart ---------------- */
+function bookUrl(a){
+  return "https://www.google.com/search?q="+encodeURIComponent(a.n+" "+a.area+" "+(a.base==="ischia"?"Ischia":"Napoli"));
+}
+const CATCOL = {mat:"#C99238", bad:"#16707F", terme:"#2E8C8C", kultur:"#B5683C"};
+let MAP=null, mapDone=false;
+function pin(color){ return L.divIcon({className:"pin", html:'<span style="background:'+color+'"></span>', iconSize:[18,18], iconAnchor:[9,9]}); }
+function initMap(){
+  if(mapDone) return;
+  if(typeof L==="undefined"){
+    document.getElementById("map").innerHTML='<p style="padding:24px;color:#9aa6a3;font-style:italic">Kartet kunne ikke lastes — sjekk at du er på nett.</p>';
+    return;
+  }
+  MAP=L.map("map",{scrollWheelZoom:true}).setView([40.78,14.07],9);
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:19,attribution:"© OpenStreetMap"}).addTo(MAP);
+  const hIco=L.divIcon({className:"pin hotel", html:"<span></span>", iconSize:[22,22], iconAnchor:[11,11]});
+  L.marker(HOTELG.ischia,{icon:hIco}).addTo(MAP).bindPopup('<div class="mpop"><b>Hotel Terme Principe</b><div class="mmeta">Din base på Ischia · Lacco Ameno</div></div>');
+  L.marker(HOTELG.napoli,{icon:hIco}).addTo(MAP).bindPopup('<div class="mpop"><b>Exe Majestic</b><div class="mmeta">Din base i Napoli · Chiaia</div></div>');
+  A.forEach(a=>{
+    if(typeof a.lat!=="number") return;
+    const html='<div class="mpop"><b>'+a.n+'</b><div class="mmeta">'+a.area+' · '+CATLABEL[a.cat]+' · '+a.distLabel+'</div>'+
+      '<div class="mlinks"><a href="'+mapsUrl(a.pid)+'" target="_blank" rel="noopener">Åpne i kart</a>'+
+      '<a href="'+bookUrl(a)+'" target="_blank" rel="noopener">Nettside / book</a></div></div>';
+    L.marker([a.lat,a.lng],{icon:pin(CATCOL[a.cat])}).addTo(MAP).bindPopup(html);
+  });
+  mapDone=true;
+  fitRegion("ischia");
+}
+function fitRegion(r){
+  if(!MAP) return;
+  if(r==="napoli") MAP.setView([40.838,14.246],13.3);
+  else MAP.setView([40.735,13.905],11.4);
+}
+
+/* ---------------- Init ---------------- */
+(async function init(){
+  await loadPlan();
+  computeDistances();
+  render();
+})();
+</script>
+</body>
+</html>
